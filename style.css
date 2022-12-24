@@ -1,0 +1,350 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.buttons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1rem;
+    display: flex;
+    gap: 1rem;
+    font-weight: 400;
+}
+
+button {
+    padding: 5px;
+    position: relative;
+    padding-left: 35px;
+    height: 35px;
+    border-radius: 1rem;
+    width: 90px;
+    cursor: pointer;
+    border: solid 1px #b9acac;
+}
+
+.button-play::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    background: url(button-play.png);  
+}
+
+.button-pause::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    background: url(button-pause.png);  
+}
+
+
+.scene {
+    position: relative;
+    background-color: #571212;
+    height: 100vh;
+    width: 100%;
+}
+.scene::before {
+    position: absolute;
+    content: '';
+    background: radial-gradient(#FFFD 60%, #000D);
+    width: 700px;
+    height: 300px;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 50% 50%;
+    transform: translate(-50%, 70%);
+
+}
+
+.santa-claus {
+    position: absolute;
+    top: 2rem;
+    right: -600px;
+    animation: passingSanta infinite 8s linear;
+}
+.santa-claus__img {
+    height: 250px;
+    width: 600px;
+}
+
+.santa-claus::after {
+    content: 'Merry Christmas!';
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    text-indent: 3rem;
+    padding: 10px 20px;
+    font-family: arial;
+    font-size: 3rem;
+    width: fit-content;
+    height: 80px;
+    right: 0;
+    top: 0;
+    border-radius: 2rem;
+    border-top-left-radius: 60%;
+    border-bottom-left-radius: 60%;
+    transform: translate(102%, 120%);
+    background-color: white;
+    color: red;
+}
+
+@keyframes passingSanta {
+    
+    100% {transform: translateX(calc(-100vw - 1200px))}
+}
+.christmas-tree {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.trunk {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #302626;
+    width: 50px;
+    height: 100px;
+}
+
+.leafs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-bottom: 110px solid green;
+    left: 50%;
+    top: -110px;
+    transform: translateX(-50%);
+}
+
+.leafs::before {
+    content: '';
+    position: absolute;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 80px solid green;
+    left: 50%;
+    top: -35px;
+    transform: translateX(-50%);
+}
+
+.leafs::after {
+    content: '';
+    position: absolute;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid green;
+    left: 50%;
+    top: -70px;
+    transform: translateX(-50%);
+}
+
+.star {
+    user-select: none;
+}
+
+.star img {
+    position: absolute;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -210px);
+}
+
+.star::before {
+    position: absolute;
+    content: "";
+    background-color: yellow;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, -210px);
+    filter: blur(1rem);
+    animation: shiningStar 2s infinite ease;
+}
+
+@keyframes shiningStar {
+    50% {filter: blur(2rem);}
+    0%, 100% {filter: blur(1rem);}
+}
+
+.present {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+}
+
+@keyframes presentOut {
+    to {
+        transform: translateY(-50px);
+    }
+}
+
+.tampa {
+    width:60px;
+    height:20px;
+    transform: translateX(-5px);
+    transition: all 1s;
+    box-shadow: 0px 2px 5px;
+}
+
+.tampa::after {
+    position: absolute;
+    content: '';
+    top: -26px;
+    left: 30px;
+    width: 30px;
+    height: 20px;
+    transform: rotateZ(10deg);
+    border: solid 5px goldenrod;
+    border-radius: 79% 21% 100% 0% / 100% 20% 80% 0%;
+}
+.tampa::before {
+    position: absolute;
+    content: '';
+    top: -26px;
+    left: -10px;
+    width: 30px;
+    height: 20px;
+    transform: rotateZ(-10deg) rotateY(180deg);
+    border: solid 5px goldenrod;
+    border-radius: 79% 21% 100% 0% / 100% 20% 80% 0%;
+}
+
+.present:hover .tampa {
+    transform: translateY(-40px) translateX(30px) rotateZ(60deg);
+}
+
+.present:nth-of-type(1) {
+    left: 40%;
+    top: 55%;
+    background: repeating-linear-gradient(to right, #8a1dab 0% 20%, #2b1cb2 20% 22%);
+}
+
+.present:nth-of-type(1) .tampa {
+    background-color: #2b1cb2;
+}
+
+.present:nth-of-type(2) {
+    background: repeating-linear-gradient(to right, #1dab70 0% 20%, #afb21c 20% 22%);
+    left: 60%;
+    top: 60%;
+}
+
+.present:nth-of-type(2) .tampa {
+    background-color: #a50f30;
+}
+
+.present:nth-of-type(3) .tampa {
+    background-color: #70a50f;
+}
+
+.present:nth-of-type(3) {
+    background: repeating-linear-gradient(to right, #721dab 0% 20%, #afb21c 20% 22%);
+    left: 50%;
+    top: 65%;
+}
+
+.present:nth-of-type(4) .tampa {
+    background-color: #0fa56b;
+}
+
+.present:nth-of-type(4) {
+    background: repeating-linear-gradient(to right, #511e74 0% 20%, #afb21c 20% 22%);
+    left: 35%;
+    top: 45%;
+}
+
+
+.active {
+    border: solid 1px green;
+    background-color: tomato;
+    font-weight: 500;
+}
+
+.snowman {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 55%;
+    top: 35%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.snowman__body {
+    width: 120px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 10px 15px 30px 0px #0008;
+}
+.snowman__head {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    border-bottom: solid 1px #0005;
+}
+
+.snowman__head::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 95px;
+    background: url('gorro.png');
+    top: -30px;
+    left: -30px;
+}
+
+.snowman__face {
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    top: 60px;
+    left: 20px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 55px solid orange;
+    transform: rotateZ(80deg);
+}
+
+.snowman__face::before {
+    rotate: 10deg;
+    content: 'Θ';
+    position: absolute;
+    top: 10px;
+    left: -70px;
+}
+
+.snowman__face::after {
+    rotate: -5deg;
+    content: 'Θ';
+    position: absolute;
+    top: -25px;
+    left: -70px;
+}
